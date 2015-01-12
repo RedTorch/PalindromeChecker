@@ -32,10 +32,29 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  String editWord = "";
+  String drow = "";
+  for(int i = 0; i < word.length(); i++)
+  {
+    if((String)(word.substring(i,i+1)) != " " && (String)(word.substring(i,i+1)) != "," && (String)(word.substring(i,i+1)) != "!" && (String)(word.substring(i,i+1)) != "'")
+    if(!((word.substring(i,i+1)).equals(" ")) && !((word.substring(i,i+1)).equals(",")) && !((word.substring(i,i+1)).equals("!")) && !((word.substring(i,i+1)).equals("'")))
+    {
+      editWord = editWord + (word.substring(i,i+1).toLowerCase());
+    }
+  }
+  for(int i = editWord.length()-1; i >= 0; i--)
+  {
+    //if(((String)(editWord.substring(i,i+1)).equals(" ")) && ((String)(editWord.substring(i,i+1)).equals(",")) && ((String)(editWord.substring(i,i+1)).equals("!")) && ((String)(editWord.substring(i,i+1)).equals("'")))
+    if(!((editWord.substring(i,i+1)).equals(" ")) && !((editWord.substring(i,i+1)).equals(",")) && !((editWord.substring(i,i+1)).equals("!")) && !((editWord.substring(i,i+1)).equals("'")))
+    {
+      drow = drow + (editWord.substring(i,i+1));
+    }
+  }
+  //editWord.toLowerCase();
+  println(drow+" is the reversal of "+editWord);
+  if(editWord.equals(drow)){return true;}
+  else{return false;}
 }
-
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "PalindromeChecker" };
     if (passedArgs != null) {
